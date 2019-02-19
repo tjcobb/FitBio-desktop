@@ -16,6 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "aws s3 sync build/ s3://fitbio-client --delete",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E10X9TWS8KLTIB --paths '/*' && aws cloudfront create-invalidation --distribution-id E1LB85WRM8KHWM --paths '/*'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

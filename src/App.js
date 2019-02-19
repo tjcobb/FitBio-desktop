@@ -57,12 +57,12 @@ class App extends Component {
               <Navbar.Toggle/>
             </Navbar.Header>
             <Navbar.Collapse>
-              <Nav pullRight>
+              <Nav pullRight className="flex-column">
                 {this.state.isAuthenticated
                     ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
                     : <Fragment>
                       <LinkContainer to="/signup">
-                        <NavItem>Signup</NavItem>
+                        <NavItem>Sign-Up</NavItem>
                       </LinkContainer>
                       <LinkContainer to="/login">
                         <NavItem>Login</NavItem>

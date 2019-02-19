@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 export default class Home extends Component {
@@ -12,17 +13,26 @@ export default class Home extends Component {
         }
     }
 
-    renderLander() {
+    renderHome() {
         return <div className="lander">
             <h1>FitBio</h1>
             <p>Log your fitness!</p>
         </div>
     }
 
-    renderHome() {
+    renderLander() {
         return (
-            <div className="home">
-                <p>Logged in!</p>
+            <div className="lander">
+                <h1>FitBio</h1>
+                <p>A fitness tracking app</p>
+                <div>
+                    <Link to="/login" className="btn btn-info btn-lg">
+                        Login
+                    </Link>
+                    <Link to="/signup" className="btn btn-success btn-lg">
+                        Sign-Up
+                    </Link>
+                </div>
             </div>
         );
     }

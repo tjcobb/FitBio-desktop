@@ -43,7 +43,7 @@ export default class Login extends Component {
             <div className="Login">
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="username" bsSize="large">
-                        <ControlLabel>Username or Email</ControlLabel>
+                        <ControlLabel>Username/Email</ControlLabel>
                         <FormControl
                             autoFocus
                             type="username"
