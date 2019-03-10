@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { API } from 'aws-amplify';
 import { Link } from "react-router-dom";
 import "./Home.css";
 
@@ -11,6 +12,11 @@ export default class Home extends Component {
             isLoading: true,
             notes: []
         }
+    }
+
+    async componentDidMount() {
+        const weights = await API.get("weights", "/weight/tyler");
+        console.log(weights);
     }
 
     renderHome() {

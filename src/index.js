@@ -6,17 +6,24 @@ import {BrowserRouter as Router} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
 import Amplify from 'aws-amplify';
+import config from "./config";
 
 Amplify.configure({
     Auth: {
-        // REQUIRED - Amazon Cognito Identity Pool ID
-        identityPoolId: 'us-east-1:c8ab2410-71ba-4bf5-8dc1-9a281bbd976e',
-        // REQUIRED - Amazon Cognito Region
-        region: 'us-east-1',
-        // OPTIONAL - Amazon Cognito User Pool ID
-        userPoolId: 'us-east-1_zpMtD1uy0',
-        // OPTIONAL - Amazon Cognito Web Client ID
-        userPoolWebClientId: '57643pc3surg4ijdt7ltc9n8c1',
+        mandatorySignIn: true,
+        region: config.cognito.REGION,
+        userPoolId: config.cognito.USER_POOL_ID,
+        identityPoolId: config.cognito.IDENTITY_POOL_ID,
+        userPoolWebClientId: config.cognito.APP_CLIENT_ID
+    },
+    API: {
+        endpoints: [
+            {
+                name: "weights",
+                endpoint: config.apiGateway.URL,
+                region: config.apiGateway.REGION
+            },
+        ]
     }
 });
 
